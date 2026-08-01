@@ -345,7 +345,7 @@ html[data-theme-setting="light"] {
 
 .portfolio-affiliation,
 .portfolio-blurb,
-.portfolio-details dd,
+.portfolio-details p,
 .portfolio-copyright {
   color: var(--portfolio-muted-color);
 }
@@ -367,20 +367,7 @@ html[data-theme-setting="light"] {
   margin: 0;
 }
 
-.portfolio-details div {
-  display: grid;
-  grid-template-columns: 2.2rem minmax(0, 1fr);
-  gap: 0.7rem;
-  align-items: start;
-}
-
-.portfolio-details dt {
-  color: var(--global-hover-color);
-  font-family: var(--global-mono-font-family);
-  font-size: 0.76rem;
-}
-
-.portfolio-details dd {
+.portfolio-details p {
   margin: 0;
   line-height: 1.45;
 }
@@ -414,6 +401,16 @@ html[data-theme-setting="light"] {
 .portfolio-socials a {
   min-width: 2.5rem;
   padding: 0 0.7rem;
+}
+
+.portfolio-socials i,
+.portfolio-contact-actions i {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.portfolio-contact-actions a {
+  gap: 0.45rem;
 }
 
 .portfolio-socials a:hover,

@@ -63,22 +63,23 @@
         </div>
 
         {% if profile.details %}
-          <dl class="portfolio-details">
+          <div class="portfolio-details">
             {% for detail in profile.details %}
-              <div>
-                <dt>{{ forloop.index | prepend: '0' }}</dt>
-                <dd>{{ detail }}</dd>
-              </div>
+              <p>{{ detail }}</p>
             {% endfor %}
-          </dl>
+          </div>
         {% endif %}
 
         <div class="portfolio-socials" aria-label="Profile links">
           {% if site.data.socials.email %}
-            <a href="mailto:{{ site.data.socials.email }}" aria-label="Email">@</a>
+            <a href="mailto:{{ site.data.socials.email }}" aria-label="Email">
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            </a>
           {% endif %}
           {% if site.data.socials.linkedin %}
-            <a href="{{ site.data.socials.linkedin }}" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+            <a href="{{ site.data.socials.linkedin }}" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+            </a>
           {% endif %}
           {% if site.data.socials.scholar_userid %}
             <a
@@ -87,7 +88,7 @@
               rel="noopener"
               aria-label="Google Scholar"
             >
-              GS
+              <i class="ai ai-google-scholar" aria-hidden="true"></i>
             </a>
           {% endif %}
           <a href="{{ profile.profile_url }}" target="_blank" rel="noopener" aria-label="LBNL profile">LBNL</a>
