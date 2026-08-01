@@ -2,7 +2,7 @@
 layout: page
 permalink: /publications/
 title: publications
-description: Publications listed with paper name, authors, publisher details, DOI, and links.
+description: This page shows my publications.
 nav: true
 nav_order: 3
 ---
@@ -13,6 +13,16 @@ nav_order: 3
 
 <div class="publications">
 
-{% bibliography %}
+<h2>Journal Articles</h2>
+
+{% bibliography --query @article %}
+
+<h2>Conference Proceedings</h2>
+
+{% bibliography --query @inproceedings %}
+
+<h2>Software</h2>
+
+{% bibliography --query @misc %}
 
 </div>
