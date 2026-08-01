@@ -13,6 +13,13 @@ nav_order: 3
 
 <div class="publications">
 
+<div class="publication-scholar-link">
+  <a href="https://scholar.google.com/citations?user={{ site.data.socials.scholar_userid }}" target="_blank" rel="noopener">
+    <i class="ai ai-google-scholar" aria-hidden="true"></i>
+    <span>View my publications on Google Scholar</span>
+  </a>
+</div>
+
 <h2>Journal Articles</h2>
 
 {% bibliography --query @article %}

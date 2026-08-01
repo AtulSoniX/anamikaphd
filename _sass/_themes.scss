@@ -883,6 +883,41 @@ html[data-theme-setting="light"] {
   margin-top: 1rem;
 }
 
+.publication-scholar-link {
+  margin-bottom: 1.4rem;
+}
+
+.publication-scholar-link a {
+  display: inline-flex;
+  min-height: 2.4rem;
+  align-items: center;
+  gap: 0.5rem;
+  border: var(--portfolio-border-width) solid var(--portfolio-panel-border-color-strong);
+  border-radius: var(--portfolio-radius-sm);
+  padding: 0.2rem 0.85rem;
+  color: var(--global-text-color);
+  background: rgba(13, 13, 15, 0.72);
+  font-family: var(--global-mono-font-family);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    border-color var(--portfolio-transition),
+    color var(--portfolio-transition),
+    transform var(--portfolio-transition);
+}
+
+.publication-scholar-link a:hover {
+  border-color: var(--global-hover-color);
+  color: var(--global-hover-color);
+  transform: translateY(-0.1rem);
+}
+
+.publication-scholar-link i {
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
 .publication-record {
   padding: 1.15rem;
 }
