@@ -3,6 +3,88 @@
         const themeStorageKey = 'anamika-theme';
         const accentStorageKey = 'anamika-accent';
         const accents = ['violet', 'teal', 'sky', 'rose', 'emerald'];
+        const accentTokens = {
+          violet: {
+            '--global-theme-color': '#9333ea',
+            '--global-hover-color': '#a855f7',
+            '--global-footer-link-color': '#a855f7',
+            '--global-divider-color': 'rgba(168, 85, 247, 0.25)',
+            '--global-card-left-border-color': 'rgba(147, 51, 234, 0.4)',
+            '--global-back-to-top-bg-color': 'rgba(168, 85, 247, 0.14)',
+            '--portfolio-panel-border-color': 'rgba(168, 85, 247, 0.16)',
+            '--portfolio-panel-border-color-strong': 'rgba(168, 85, 247, 0.52)',
+            '--portfolio-shadow-color': 'rgba(168, 85, 247, 0.22)',
+            '--portfolio-accent-soft-color': 'rgba(168, 85, 247, 0.12)',
+            '--portfolio-accent-track-color': 'rgba(147, 51, 234, 0.2)',
+            '--portfolio-accent-track-color-soft': 'rgba(168, 85, 247, 0.08)',
+            '--portfolio-particle-color': 'rgba(168, 85, 247, 0.82)',
+            '--portfolio-particle-line-color': 'rgba(168, 85, 247, 0.13)',
+          },
+          teal: {
+            '--global-theme-color': '#0f766e',
+            '--global-hover-color': '#14b8a6',
+            '--global-footer-link-color': '#14b8a6',
+            '--global-divider-color': 'rgba(20, 184, 166, 0.24)',
+            '--global-card-left-border-color': 'rgba(20, 184, 166, 0.38)',
+            '--global-back-to-top-bg-color': 'rgba(20, 184, 166, 0.14)',
+            '--portfolio-panel-border-color': 'rgba(20, 184, 166, 0.16)',
+            '--portfolio-panel-border-color-strong': 'rgba(20, 184, 166, 0.5)',
+            '--portfolio-shadow-color': 'rgba(20, 184, 166, 0.2)',
+            '--portfolio-accent-soft-color': 'rgba(20, 184, 166, 0.12)',
+            '--portfolio-accent-track-color': 'rgba(15, 118, 110, 0.22)',
+            '--portfolio-accent-track-color-soft': 'rgba(20, 184, 166, 0.08)',
+            '--portfolio-particle-color': 'rgba(20, 184, 166, 0.78)',
+            '--portfolio-particle-line-color': 'rgba(20, 184, 166, 0.13)',
+          },
+          sky: {
+            '--global-theme-color': '#2563eb',
+            '--global-hover-color': '#38bdf8',
+            '--global-footer-link-color': '#38bdf8',
+            '--global-divider-color': 'rgba(56, 189, 248, 0.24)',
+            '--global-card-left-border-color': 'rgba(56, 189, 248, 0.38)',
+            '--global-back-to-top-bg-color': 'rgba(56, 189, 248, 0.14)',
+            '--portfolio-panel-border-color': 'rgba(56, 189, 248, 0.16)',
+            '--portfolio-panel-border-color-strong': 'rgba(56, 189, 248, 0.5)',
+            '--portfolio-shadow-color': 'rgba(56, 189, 248, 0.18)',
+            '--portfolio-accent-soft-color': 'rgba(56, 189, 248, 0.12)',
+            '--portfolio-accent-track-color': 'rgba(37, 99, 235, 0.2)',
+            '--portfolio-accent-track-color-soft': 'rgba(56, 189, 248, 0.08)',
+            '--portfolio-particle-color': 'rgba(56, 189, 248, 0.78)',
+            '--portfolio-particle-line-color': 'rgba(56, 189, 248, 0.13)',
+          },
+          rose: {
+            '--global-theme-color': '#be123c',
+            '--global-hover-color': '#fb7185',
+            '--global-footer-link-color': '#fb7185',
+            '--global-divider-color': 'rgba(251, 113, 133, 0.24)',
+            '--global-card-left-border-color': 'rgba(251, 113, 133, 0.38)',
+            '--global-back-to-top-bg-color': 'rgba(251, 113, 133, 0.14)',
+            '--portfolio-panel-border-color': 'rgba(251, 113, 133, 0.16)',
+            '--portfolio-panel-border-color-strong': 'rgba(251, 113, 133, 0.5)',
+            '--portfolio-shadow-color': 'rgba(251, 113, 133, 0.18)',
+            '--portfolio-accent-soft-color': 'rgba(251, 113, 133, 0.12)',
+            '--portfolio-accent-track-color': 'rgba(190, 18, 60, 0.2)',
+            '--portfolio-accent-track-color-soft': 'rgba(251, 113, 133, 0.08)',
+            '--portfolio-particle-color': 'rgba(251, 113, 133, 0.78)',
+            '--portfolio-particle-line-color': 'rgba(251, 113, 133, 0.13)',
+          },
+          emerald: {
+            '--global-theme-color': '#047857',
+            '--global-hover-color': '#34d399',
+            '--global-footer-link-color': '#34d399',
+            '--global-divider-color': 'rgba(52, 211, 153, 0.24)',
+            '--global-card-left-border-color': 'rgba(52, 211, 153, 0.38)',
+            '--global-back-to-top-bg-color': 'rgba(52, 211, 153, 0.14)',
+            '--portfolio-panel-border-color': 'rgba(52, 211, 153, 0.16)',
+            '--portfolio-panel-border-color-strong': 'rgba(52, 211, 153, 0.5)',
+            '--portfolio-shadow-color': 'rgba(52, 211, 153, 0.18)',
+            '--portfolio-accent-soft-color': 'rgba(52, 211, 153, 0.12)',
+            '--portfolio-accent-track-color': 'rgba(4, 120, 87, 0.2)',
+            '--portfolio-accent-track-color-soft': 'rgba(52, 211, 153, 0.08)',
+            '--portfolio-particle-color': 'rgba(52, 211, 153, 0.78)',
+            '--portfolio-particle-line-color': 'rgba(52, 211, 153, 0.13)',
+          },
+        };
         let theme = 'dark';
         let accent = 'violet';
 
@@ -19,6 +101,13 @@
         document.documentElement.dataset.theme = theme;
         document.documentElement.dataset.themeSetting = theme;
         document.documentElement.dataset.accent = accent;
+        window.anamikaApplyAccent = (nextAccent) => {
+          const tokens = accentTokens[nextAccent] || accentTokens.violet;
+          for (const [name, value] of Object.entries(tokens)) {
+            document.documentElement.style.setProperty(name, value);
+          }
+        };
+        window.anamikaApplyAccent(accent);
       })();
     </script> <link rel="stylesheet" href="/anamikaphd/assets/css/tailwind.css"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link rel="stylesheet" href="/anamikaphd/assets/css/main.css"> </head> <body class="anamika-portfolio-body"> <canvas class="portfolio-particles" id="portfolio-particles" aria-hidden="true"></canvas> <div class="portfolio-shell"> <aside class="portfolio-sidebar" aria-label="Profile"> <a class="portfolio-photo-link" href="https://gridintegration.lbl.gov/people/anamika-tiwari" target="_blank" rel="noopener"> <img class="portfolio-photo" src="/anamikaphd/assets/img/Anamika.jpg" alt="Anamika Tiwari portrait" width="220" height="220"> </a> <div class="portfolio-identity"> <h1>Anamika Tiwari</h1> <p class="portfolio-role">Postdoctoral Researcher</p> <p class="portfolio-affiliation">Lawrence Berkeley National Lab (LBNL), USA</p> <p class="portfolio-blurb">Optimization, renewable integration, and large-scale power system modeling.</p> </div> <div class="portfolio-details"> <p>Ph.D., Electrical Engineering, IIT Kanpur</p> <p>M.Tech., Electrical Engineering, IIT Roorkee</p> </div> <div class="portfolio-socials" aria-label="Profile links"> <a href="mailto:work.anamika@gmail.com" aria-label="Email"> <i class="fa-solid fa-envelope" aria-hidden="true"></i> </a> <a href="https://www.linkedin.com/in/anamika-t/" target="_blank" rel="noopener" aria-label="LinkedIn"> <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i> </a> <a href="https://scholar.google.com/citations?user=i84LWQkAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar"> <i class="ai ai-google-scholar" aria-hidden="true"></i> </a> <a href="https://gridintegration.lbl.gov/people/anamika-tiwari" target="_blank" rel="noopener" aria-label="LBNL profile">LBNL</a> <button class="portfolio-theme-toggle js-portfolio-theme-toggle" type="button" aria-label="Switch to light mode"> <span class="portfolio-theme-track" aria-hidden="true"> <i class="fa-solid fa-moon"></i> <i class="fa-solid fa-sun"></i> <span class="portfolio-theme-thumb"></span> </span> </button> <button class="portfolio-accent-toggle js-portfolio-accent-toggle" type="button" aria-label="Change accent color"> <i class="fa-solid fa-palette" aria-hidden="true"></i> <span class="portfolio-accent-swatch" aria-hidden="true"></span> </button> </div> <p class="portfolio-copyright"> © 2026 Anamika Tiwari </p> </aside> <main class="portfolio-main"> <nav class="portfolio-nav" aria-label="Primary"> <a class="" href="/anamikaphd/">About</a> <a class="" href="/anamikaphd/research/">Research</a> <a class="" href="/anamikaphd/publications/">Publications</a> <a class="" href="/anamikaphd/projects/">Projects</a> <a class="" href="/anamikaphd/contact/">Contact</a> <button class="portfolio-theme-toggle js-portfolio-theme-toggle" type="button" aria-label="Switch to light mode"> <span class="portfolio-theme-track" aria-hidden="true"> <i class="fa-solid fa-moon"></i> <i class="fa-solid fa-sun"></i> <span class="portfolio-theme-thumb"></span> </span> </button> <button class="portfolio-accent-toggle js-portfolio-accent-toggle" type="button" aria-label="Change accent color"> <i class="fa-solid fa-palette" aria-hidden="true"></i> <span class="portfolio-accent-swatch" aria-hidden="true"></span> </button> </nav> <article class="portfolio-section portfolio-section-first" aria-labelledby="post-title"> <header class="portfolio-page-header"> <p class="portfolio-kicker">November 7, 2015</p> <h1 id="post-title">A long announcement with details</h1> </header> <div class="portfolio-panel portfolio-rich-text"> <p>Announcements and news can be much longer than just quick inline posts. In fact, they can have all the features available for the standard blog posts. See below.</p> <hr> <p>Jean shorts raw denim Vice normcore, art party High Life PBR skateboard stumptown vinyl kitsch. Four loko meh 8-bit, tousled banh mi tilde forage Schlitz dreamcatcher twee 3 wolf moon. Chambray asymmetrical paleo salvia, sartorial umami four loko master cleanse drinking vinegar brunch. <a href="https://www.pinterest.com" rel="external nofollow noopener" target="_blank">Pinterest</a> DIY authentic Schlitz, hoodie Intelligentsia butcher trust fund brunch shabby chic Kickstarter forage flexitarian. Direct trade <a href="https://en.wikipedia.org/wiki/Cold-pressed_juice" rel="external nofollow noopener" target="_blank">cold-pressed</a> meggings stumptown plaid, pop-up taxidermy. Hoodie XOXO fingerstache scenester Echo Park. Plaid ugh Wes Anderson, freegan pug selvage fanny pack leggings pickled food truck DIY irony Banksy.</p> <h4 id="hipster-list">Hipster list</h4> <ul> <li>brunch</li> <li>fixie</li> <li>raybans</li> <li>messenger bag</li> </ul> <p>Hoodie Thundercats retro, tote bag 8-bit Godard craft beer gastropub. Truffaut Tumblr taxidermy, raw denim Kickstarter sartorial dreamcatcher. Quinoa chambray slow-carb salvia readymade, bicycle rights 90’s yr typewriter selfies letterpress cardigan vegan.</p> <hr> <p>Pug heirloom High Life vinyl swag, single-origin coffee four dollar toast taxidermy reprehenderit fap distillery master cleanse locavore. Est anim sapiente leggings Brooklyn ea. Thundercats locavore excepteur veniam eiusmod. Raw denim Truffaut Schlitz, migas sapiente Portland VHS twee Bushwick Marfa typewriter retro id keytar.</p> <blockquote> <p>We do not grow absolutely, chronologically. We grow sometimes in one dimension, and not in another, unevenly. We grow partially. We are relative. We are mature in one realm, childish in another. —Anais Nin</p> </blockquote> <p>Fap aliqua qui, scenester pug Echo Park polaroid irony shabby chic ex cardigan church-key Odd Future accusamus. Blog stumptown sartorial squid, gastropub duis aesthetic Truffaut vero. Pinterest tilde twee, odio mumblecore jean shorts lumbersexual.</p> </div> </article> </main> </div> <script>
       (() => {
@@ -143,6 +232,7 @@
         function setAccent(accent) {
           const nextAccent = accents.includes(accent) ? accent : 'violet';
           document.documentElement.dataset.accent = nextAccent;
+          if (window.anamikaApplyAccent) window.anamikaApplyAccent(nextAccent);
           for (const toggle of toggles) {
             toggle.setAttribute('aria-label', `Change accent color. Current: ${labelFor(nextAccent)}`);
           }
