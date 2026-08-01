@@ -580,6 +580,258 @@ html[data-theme-setting="light"] {
   padding: 0.05rem 0.95rem;
 }
 
+.portfolio-page-header {
+  margin-bottom: 1.35rem;
+}
+
+.portfolio-page-header h1 {
+  margin: 0;
+  color: var(--portfolio-heading-color);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 850;
+  line-height: 1;
+  text-transform: capitalize;
+}
+
+.portfolio-page-header p {
+  max-width: 46rem;
+  margin: 0.9rem 0 0;
+  color: var(--portfolio-muted-color);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.portfolio-kicker {
+  margin: 0 0 0.7rem !important;
+  color: var(--global-hover-color) !important;
+  font-family: var(--global-mono-font-family);
+  font-size: 0.78rem !important;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.portfolio-rich-text {
+  color: var(--portfolio-muted-color);
+  line-height: 1.7;
+}
+
+.portfolio-rich-text h1,
+.portfolio-rich-text h2,
+.portfolio-rich-text h3,
+.portfolio-rich-text h4,
+.portfolio-rich-text h5,
+.portfolio-rich-text h6 {
+  margin: 1.8rem 0 0.8rem;
+  color: var(--portfolio-heading-color);
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.portfolio-rich-text h1:first-child,
+.portfolio-rich-text h2:first-child,
+.portfolio-rich-text h3:first-child {
+  margin-top: 0;
+}
+
+.portfolio-rich-text p,
+.portfolio-rich-text li,
+.portfolio-rich-text dd {
+  color: var(--portfolio-muted-color);
+}
+
+.portfolio-rich-text p {
+  margin: 0 0 1rem;
+}
+
+.portfolio-rich-text a,
+.portfolio-rich-text .post-title,
+.portfolio-rich-text .news-title {
+  color: var(--global-hover-color);
+  text-decoration: none;
+}
+
+.portfolio-rich-text a:hover,
+.portfolio-rich-text .post-title:hover,
+.portfolio-rich-text .news-title:hover {
+  color: var(--global-text-color);
+}
+
+.portfolio-rich-text ul,
+.portfolio-rich-text ol {
+  padding-left: 1.25rem;
+}
+
+.portfolio-rich-text blockquote {
+  margin: 1.2rem 0;
+  border-left: 0.18rem solid var(--global-hover-color);
+  padding-left: 1rem;
+  color: var(--portfolio-muted-color);
+}
+
+.portfolio-rich-text code,
+.portfolio-rich-text pre {
+  border-radius: var(--portfolio-radius-sm);
+  background: var(--global-code-bg-color);
+  color: var(--global-text-color);
+}
+
+.portfolio-rich-text pre {
+  overflow-x: auto;
+  padding: 1rem;
+}
+
+.portfolio-rich-text hr {
+  border: 0;
+  border-top: var(--portfolio-border-width) solid var(--portfolio-panel-border-color);
+  margin: 2rem 0;
+}
+
+.portfolio-rich-text .post,
+.portfolio-rich-text .publications,
+.portfolio-rich-text .projects,
+.portfolio-rich-text .news,
+.portfolio-rich-text .repositories {
+  color: var(--portfolio-muted-color);
+}
+
+.portfolio-rich-text .post-list {
+  display: grid;
+  gap: 1rem;
+  padding-left: 0;
+  list-style: none;
+}
+
+.portfolio-rich-text .post-list li,
+.portfolio-rich-text .card,
+.portfolio-rich-text .bibliography > li,
+.portfolio-rich-text .table-responsive,
+.portfolio-profile-card {
+  border: var(--portfolio-border-width) solid var(--portfolio-panel-border-color);
+  border-radius: var(--portfolio-radius-sm);
+  background: var(--portfolio-panel-bg-color-strong);
+}
+
+.portfolio-rich-text .post-list li,
+.portfolio-rich-text .bibliography > li {
+  padding: 1rem;
+}
+
+.portfolio-rich-text .card {
+  color: var(--portfolio-muted-color);
+}
+
+.portfolio-rich-text .card-body {
+  background: transparent;
+}
+
+.portfolio-rich-text .card-title,
+.portfolio-rich-text .title {
+  color: var(--portfolio-heading-color);
+}
+
+.portfolio-rich-text .badge,
+.portfolio-rich-text .btn,
+.portfolio-button {
+  display: inline-flex;
+  min-height: 2.1rem;
+  align-items: center;
+  justify-content: center;
+  border: var(--portfolio-border-width) solid var(--portfolio-panel-border-color-strong);
+  border-radius: var(--portfolio-radius-sm);
+  padding: 0.2rem 0.75rem;
+  color: var(--global-text-color);
+  background: rgba(13, 13, 15, 0.72);
+  font-family: var(--global-mono-font-family);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.portfolio-rich-text .badge:hover,
+.portfolio-rich-text .btn:hover,
+.portfolio-button:hover {
+  border-color: var(--global-hover-color);
+  color: var(--global-hover-color);
+}
+
+.portfolio-table-wrap,
+.portfolio-rich-text .table-responsive {
+  overflow-x: auto;
+}
+
+.portfolio-rich-text table,
+.portfolio-table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.portfolio-rich-text th,
+.portfolio-rich-text td,
+.portfolio-table-wrap th,
+.portfolio-table-wrap td {
+  border-bottom: var(--portfolio-border-width) solid var(--portfolio-panel-border-color);
+  padding: 0.75rem;
+  color: var(--portfolio-muted-color);
+  vertical-align: top;
+}
+
+.portfolio-rich-text th,
+.portfolio-table-wrap th {
+  color: var(--portfolio-heading-color);
+  font-family: var(--global-mono-font-family);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+}
+
+.portfolio-meta-list {
+  display: grid;
+  gap: 0.8rem;
+  margin: 0 0 1.5rem;
+}
+
+.portfolio-meta-list div {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.portfolio-meta-list dt {
+  color: var(--global-hover-color);
+  font-family: var(--global-mono-font-family);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.portfolio-meta-list dd {
+  margin: 0;
+}
+
+.portfolio-profile-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.portfolio-profile-card {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr);
+  gap: 1.2rem;
+  padding: 1rem;
+  color: var(--portfolio-muted-color);
+}
+
+.portfolio-profile-card img {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.portfolio-book-grid {
+  margin-top: 1rem;
+}
+
 @media (max-width: 980px) {
   .portfolio-shell {
     display: block;
@@ -641,6 +893,11 @@ html[data-theme-setting="light"] {
   }
 
   .portfolio-focus-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-meta-list div,
+  .portfolio-profile-card {
     grid-template-columns: 1fr;
   }
 }

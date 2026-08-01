@@ -1,0 +1,198 @@
+{% assign profile = site.portfolio %}
+{% if page.profile %}
+  {% assign profile = page.profile %}
+{% endif %}
+{% capture display_name -%}
+  {{ site.first_name }}{% if site.middle_name %} {{ site.middle_name }}{% endif %}{% if site.last_name %} {{ site.last_name }}{% endif %}
+{%- endcapture %}
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      {{ site.title | default: site.first_name }}
+      {% if page.title and page.title != 'about' %} | {{ page.title }}{% endif %}
+    </title>
+    <meta name="description" content="{{ site.description | strip_html | strip_newlines | truncate: 160 }}">
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/tailwind.css' | relative_url }}">
+    <link
+      defer
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"
+      integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c="
+      crossorigin="anonymous"
+    >
+    <link
+      defer
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css"
+      integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw="
+      crossorigin="anonymous"
+    >
+    <link
+      defer
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css"
+      integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY="
+      crossorigin="anonymous"
+    >
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  </head>
+  <body class="anamika-portfolio-body">
+    <canvas class="portfolio-particles" id="portfolio-particles" aria-hidden="true"></canvas>
+
+    <div class="portfolio-shell">
+      <aside class="portfolio-sidebar" aria-label="Profile">
+        <a class="portfolio-photo-link" href="{{ profile.profile_url }}" target="_blank" rel="noopener">
+          <img
+            class="portfolio-photo"
+            src="{{ '/assets/img/' | append: profile.image | relative_url }}"
+            alt="{{ display_name | strip | default: 'Profile' }} portrait"
+            width="220"
+            height="220"
+          >
+        </a>
+
+        <div class="portfolio-identity">
+          <h1>{{ display_name | strip | default: site.title }}</h1>
+          <p class="portfolio-role">{{ profile.title }}</p>
+          <p class="portfolio-affiliation">{{ profile.affiliation }}</p>
+          <p class="portfolio-blurb">{{ profile.blurb }}</p>
+        </div>
+
+        {% if profile.details %}
+          <dl class="portfolio-details">
+            {% for detail in profile.details %}
+              <div>
+                <dt>{{ forloop.index | prepend: '0' }}</dt>
+                <dd>{{ detail }}</dd>
+              </div>
+            {% endfor %}
+          </dl>
+        {% endif %}
+
+        <div class="portfolio-socials" aria-label="Profile links">
+          <a href="{{ '/cv/' | relative_url }}" aria-label="CV">CV</a>
+          {% if site.data.socials.email %}
+            <a href="mailto:{{ site.data.socials.email }}" aria-label="Email">@</a>
+          {% endif %}
+          {% if site.data.socials.scholar_userid %}
+            <a
+              href="https://scholar.google.com/citations?user={{ site.data.socials.scholar_userid }}"
+              target="_blank"
+              rel="noopener"
+              aria-label="Google Scholar"
+            >
+              GS
+            </a>
+          {% endif %}
+          <a href="{{ profile.profile_url }}" target="_blank" rel="noopener" aria-label="LBNL profile">LBNL</a>
+        </div>
+
+        <p class="portfolio-copyright">
+          &copy; {{ 'now' | date: '%Y' }}
+          {{ display_name | strip | default: site.title }}
+        </p>
+      </aside>
+
+      <main class="portfolio-main">
+        <nav class="portfolio-nav" aria-label="Primary">
+          <a class="{% if page.url == '/' %}active{% endif %}" href="{{ '/' | relative_url }}">About</a>
+          <a class="{% if page.url contains '/cv/' %}active{% endif %}" href="{{ '/cv/' | relative_url }}">CV</a>
+          <a href="{{ '/#research' | relative_url }}">Research</a>
+          <a class="{% if page.url contains '/publications/' %}active{% endif %}" href="{{ '/publications/' | relative_url }}">Publications</a>
+          <a class="{% if page.url contains '/teaching/' %}active{% endif %}" href="{{ '/teaching/' | relative_url }}">Teaching</a>
+          <a class="{% if page.url contains '/projects/' %}active{% endif %}" href="{{ '/projects/' | relative_url }}">Projects</a>
+          <a class="{% if page.url contains '/blog/' %}active{% endif %}" href="{{ '/blog/' | relative_url }}">Blog</a>
+          <a href="{{ '/#contact' | relative_url }}">Contact</a>
+        </nav>
+
+        {{ content }}
+      </main>
+    </div>
+
+    <script>
+      (() => {
+        const canvas = document.getElementById('portfolio-particles');
+        const context = canvas.getContext('2d');
+        const points = [];
+        const count = window.matchMedia('(max-width: 720px)').matches ? 36 : 76;
+
+        function resize() {
+          const ratio = window.devicePixelRatio || 1;
+          canvas.width = Math.floor(window.innerWidth * ratio);
+          canvas.height = Math.floor(window.innerHeight * ratio);
+          canvas.style.width = `${window.innerWidth}px`;
+          canvas.style.height = `${window.innerHeight}px`;
+          context.setTransform(ratio, 0, 0, ratio, 0, 0);
+        }
+
+        function seed() {
+          points.length = 0;
+          for (let index = 0; index < count; index += 1) {
+            points.push({
+              x: Math.random() * window.innerWidth,
+              y: Math.random() * window.innerHeight,
+              vx: (Math.random() - 0.5) * 0.18,
+              vy: (Math.random() - 0.5) * 0.18,
+            });
+          }
+        }
+
+        function draw() {
+          context.clearRect(0, 0, window.innerWidth, window.innerHeight);
+          const styles = window.getComputedStyle(document.documentElement);
+          const particleColor = styles.getPropertyValue('--portfolio-particle-color').trim();
+          const particleLineColor = styles.getPropertyValue('--portfolio-particle-line-color').trim();
+          const particleDistance = Number.parseFloat(styles.getPropertyValue('--portfolio-particle-distance')) || 140;
+
+          context.fillStyle = particleColor;
+          context.strokeStyle = particleLineColor;
+          context.lineWidth = 1;
+
+          for (const point of points) {
+            point.x += point.vx;
+            point.y += point.vy;
+
+            if (point.x < 0 || point.x > window.innerWidth) point.vx *= -1;
+            if (point.y < 0 || point.y > window.innerHeight) point.vy *= -1;
+
+            context.beginPath();
+            context.arc(point.x, point.y, 2, 0, Math.PI * 2);
+            context.fill();
+          }
+
+          for (let i = 0; i < points.length; i += 1) {
+            for (let j = i + 1; j < points.length; j += 1) {
+              const dx = points[i].x - points[j].x;
+              const dy = points[i].y - points[j].y;
+              const distance = Math.sqrt(dx * dx + dy * dy);
+
+              if (distance < particleDistance) {
+                context.globalAlpha = 1 - distance / particleDistance;
+                context.beginPath();
+                context.moveTo(points[i].x, points[i].y);
+                context.lineTo(points[j].x, points[j].y);
+                context.stroke();
+              }
+            }
+          }
+
+          context.globalAlpha = 1;
+          window.requestAnimationFrame(draw);
+        }
+
+        window.addEventListener('resize', () => {
+          resize();
+          seed();
+        });
+
+        resize();
+        seed();
+        draw();
+      })();
+    </script>
+  </body>
+</html>

@@ -1,227 +1,59 @@
-{% capture display_name -%}
-  {{ site.first_name }}{% if site.middle_name %} {{ site.middle_name }}{% endif %}{% if site.last_name %} {{ site.last_name }}{% endif %}
-{%- endcapture %}
-<!doctype html>
-<html lang="{{ site.lang | default: 'en' }}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
-      {{ site.title | default: site.first_name }}
-      {% if page.title and page.title != 'about' %} | {{ page.title }}{% endif %}
-    </title>
-    <meta name="description" content="{{ site.description | strip_html | strip_newlines | truncate: 160 }}">
-    <link rel="canonical" href="{{ page.url | absolute_url }}">
-    <link rel="stylesheet" href="{{ '/assets/css/tailwind.css' | relative_url }}">
-    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-  </head>
-  <body class="anamika-portfolio-body">
-    <canvas class="portfolio-particles" id="portfolio-particles" aria-hidden="true"></canvas>
+---
+layout: portfolio
+---
+<section class="portfolio-section portfolio-section-first" id="about" aria-labelledby="biography-title">
+  <div class="portfolio-heading">
+    <span class="portfolio-heading-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" role="img">
+        <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-4 0-7 2.2-7 5v1h14v-1c0-2.8-3-5-7-5Z"></path>
+      </svg>
+    </span>
+    <h2 id="biography-title">Biography</h2>
+  </div>
 
-    <div class="portfolio-shell">
-      <aside class="portfolio-sidebar" aria-label="Profile">
-        <a class="portfolio-photo-link" href="{{ page.profile.profile_url }}" target="_blank" rel="noopener">
-          <img
-            class="portfolio-photo"
-            src="{{ '/assets/img/' | append: page.profile.image | relative_url }}"
-            alt="{{ display_name | default: 'Profile' }} portrait"
-            width="220"
-            height="220"
-          >
-        </a>
+  <div class="portfolio-panel portfolio-bio">
+    {{ content }}
+  </div>
+</section>
 
-        <div class="portfolio-identity">
-          <h1>{{ display_name | default: site.title }}</h1>
-          <p class="portfolio-role">{{ page.profile.title }}</p>
-          <p class="portfolio-affiliation">{{ page.profile.affiliation }}</p>
-          <p class="portfolio-blurb">{{ page.profile.blurb }}</p>
-        </div>
+<section class="portfolio-section" id="research" aria-labelledby="focus-title">
+  <div class="portfolio-heading">
+    <span class="portfolio-heading-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" role="img">
+        <path d="M4 17h4v3H4Zm6-6h4v9h-4Zm6-7h4v16h-4Z"></path>
+      </svg>
+    </span>
+    <h2 id="focus-title">Current Focus Areas</h2>
+  </div>
 
-        {% if page.profile.details %}
-          <dl class="portfolio-details">
-            {% for detail in page.profile.details %}
-              <div>
-                <dt>{{ forloop.index | prepend: '0' }}</dt>
-                <dd>{{ detail }}</dd>
-              </div>
-            {% endfor %}
-          </dl>
-        {% endif %}
+  <div class="portfolio-focus-grid">
+    {% for area in page.focus_areas %}
+      <article class="portfolio-focus-card">
+        <h3>{{ area.title }}</h3>
+        <p>{{ area.description }}</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
 
-        <div class="portfolio-socials" aria-label="Profile links">
-          <a href="{{ '/cv/' | relative_url }}" aria-label="CV">CV</a>
-          {% if site.data.socials.email %}
-            <a href="mailto:{{ site.data.socials.email }}" aria-label="Email">@</a>
-          {% endif %}
-          {% if site.data.socials.scholar_userid %}
-            <a
-              href="https://scholar.google.com/citations?user={{ site.data.socials.scholar_userid }}"
-              target="_blank"
-              rel="noopener"
-              aria-label="Google Scholar"
-            >
-              GS
-            </a>
-          {% endif %}
-          <a href="{{ page.profile.profile_url }}" target="_blank" rel="noopener" aria-label="LBNL profile">LBNL</a>
-        </div>
+<section class="portfolio-section" id="contact" aria-labelledby="contact-title">
+  <div class="portfolio-heading">
+    <span class="portfolio-heading-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" role="img">
+        <path d="M4 5h16v14H4Zm8 8 7-5.2V7l-7 5.1L5 7v.8Z"></path>
+      </svg>
+    </span>
+    <h2 id="contact-title">Get in Touch</h2>
+  </div>
 
-        <p class="portfolio-copyright">
-          &copy; {{ 'now' | date: '%Y' }}
-          {{ display_name | default: site.title }}
-        </p>
-      </aside>
-
-      <main class="portfolio-main">
-        <nav class="portfolio-nav" aria-label="Primary">
-          <a class="active" href="#about">About</a>
-          <a href="{{ '/cv/' | relative_url }}">CV</a>
-          <a href="#research">Research</a>
-          <a href="{{ '/publications/' | relative_url }}">Publications</a>
-          <a href="{{ '/teaching/' | relative_url }}">Teaching</a>
-          <a href="{{ '/blog/' | relative_url }}">Blog</a>
-          <a href="#contact">Contact</a>
-        </nav>
-
-        <section class="portfolio-section portfolio-section-first" id="about" aria-labelledby="biography-title">
-          <div class="portfolio-heading">
-            <span class="portfolio-heading-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" role="img">
-                <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-4 0-7 2.2-7 5v1h14v-1c0-2.8-3-5-7-5Z"></path>
-              </svg>
-            </span>
-            <h2 id="biography-title">Biography</h2>
-          </div>
-
-          <div class="portfolio-panel portfolio-bio">
-            {{ content }}
-          </div>
-        </section>
-
-        <section class="portfolio-section" id="research" aria-labelledby="focus-title">
-          <div class="portfolio-heading">
-            <span class="portfolio-heading-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" role="img">
-                <path d="M4 17h4v3H4Zm6-6h4v9h-4Zm6-7h4v16h-4Z"></path>
-              </svg>
-            </span>
-            <h2 id="focus-title">Current Focus Areas</h2>
-          </div>
-
-          <div class="portfolio-focus-grid">
-            {% for area in page.focus_areas %}
-              <article class="portfolio-focus-card">
-                <h3>{{ area.title }}</h3>
-                <p>{{ area.description }}</p>
-              </article>
-            {% endfor %}
-          </div>
-        </section>
-
-        <section class="portfolio-section" id="contact" aria-labelledby="contact-title">
-          <div class="portfolio-heading">
-            <span class="portfolio-heading-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" role="img">
-                <path d="M4 5h16v14H4Zm8 8 7-5.2V7l-7 5.1L5 7v.8Z"></path>
-              </svg>
-            </span>
-            <h2 id="contact-title">Get in Touch</h2>
-          </div>
-
-          <div class="portfolio-panel portfolio-contact">
-            <p>I am open to research collaborations, academic conversations, and opportunities around energy systems optimization.</p>
-            <div class="portfolio-contact-actions">
-              {% if site.data.socials.email %}
-                <a href="mailto:{{ site.data.socials.email }}">Email</a>
-              {% endif %}
-              <a href="{{ page.profile.profile_url }}" target="_blank" rel="noopener">LBNL Profile</a>
-              <a href="{{ '/publications/' | relative_url }}">Publications</a>
-            </div>
-          </div>
-        </section>
-      </main>
+  <div class="portfolio-panel portfolio-contact">
+    <p>I am open to research collaborations, academic conversations, and opportunities around energy systems optimization.</p>
+    <div class="portfolio-contact-actions">
+      {% if site.data.socials.email %}
+        <a href="mailto:{{ site.data.socials.email }}">Email</a>
+      {% endif %}
+      <a href="{{ page.profile.profile_url }}" target="_blank" rel="noopener">LBNL Profile</a>
+      <a href="{{ '/publications/' | relative_url }}">Publications</a>
     </div>
-
-    <script>
-      (() => {
-        const canvas = document.getElementById('portfolio-particles');
-        const context = canvas.getContext('2d');
-        const points = [];
-        const count = window.matchMedia('(max-width: 720px)').matches ? 36 : 76;
-
-        function resize() {
-          const ratio = window.devicePixelRatio || 1;
-          canvas.width = Math.floor(window.innerWidth * ratio);
-          canvas.height = Math.floor(window.innerHeight * ratio);
-          canvas.style.width = `${window.innerWidth}px`;
-          canvas.style.height = `${window.innerHeight}px`;
-          context.setTransform(ratio, 0, 0, ratio, 0, 0);
-        }
-
-        function seed() {
-          points.length = 0;
-          for (let index = 0; index < count; index += 1) {
-            points.push({
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
-              vx: (Math.random() - 0.5) * 0.18,
-              vy: (Math.random() - 0.5) * 0.18,
-            });
-          }
-        }
-
-        function draw() {
-          context.clearRect(0, 0, window.innerWidth, window.innerHeight);
-          const styles = window.getComputedStyle(document.documentElement);
-          const particleColor = styles.getPropertyValue('--portfolio-particle-color').trim();
-          const particleLineColor = styles.getPropertyValue('--portfolio-particle-line-color').trim();
-          const particleDistance = Number.parseFloat(styles.getPropertyValue('--portfolio-particle-distance')) || 140;
-
-          context.fillStyle = particleColor;
-          context.strokeStyle = particleLineColor;
-          context.lineWidth = 1;
-
-          for (const point of points) {
-            point.x += point.vx;
-            point.y += point.vy;
-
-            if (point.x < 0 || point.x > window.innerWidth) point.vx *= -1;
-            if (point.y < 0 || point.y > window.innerHeight) point.vy *= -1;
-
-            context.beginPath();
-            context.arc(point.x, point.y, 2, 0, Math.PI * 2);
-            context.fill();
-          }
-
-          for (let i = 0; i < points.length; i += 1) {
-            for (let j = i + 1; j < points.length; j += 1) {
-              const dx = points[i].x - points[j].x;
-              const dy = points[i].y - points[j].y;
-              const distance = Math.sqrt(dx * dx + dy * dy);
-
-              if (distance < particleDistance) {
-                context.globalAlpha = 1 - distance / particleDistance;
-                context.beginPath();
-                context.moveTo(points[i].x, points[i].y);
-                context.lineTo(points[j].x, points[j].y);
-                context.stroke();
-              }
-            }
-          }
-
-          context.globalAlpha = 1;
-          window.requestAnimationFrame(draw);
-        }
-
-        window.addEventListener('resize', () => {
-          resize();
-          seed();
-        });
-
-        resize();
-        seed();
-        draw();
-      })();
-    </script>
-  </body>
-</html>
+  </div>
+</section>
