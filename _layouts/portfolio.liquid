@@ -18,18 +18,25 @@
     <link rel="canonical" href="{{ page.url | absolute_url }}">
     <script>
       (() => {
-        const storageKey = 'anamika-theme';
+        const themeStorageKey = 'anamika-theme';
+        const accentStorageKey = 'anamika-accent';
+        const accents = ['violet', 'teal', 'sky', 'rose', 'emerald'];
         let theme = 'dark';
+        let accent = 'violet';
 
         try {
-          const savedTheme = window.localStorage.getItem(storageKey);
+          const savedTheme = window.localStorage.getItem(themeStorageKey);
+          const savedAccent = window.localStorage.getItem(accentStorageKey);
           if (savedTheme === 'light' || savedTheme === 'dark') theme = savedTheme;
+          if (accents.includes(savedAccent)) accent = savedAccent;
         } catch (error) {
           theme = 'dark';
+          accent = 'violet';
         }
 
         document.documentElement.dataset.theme = theme;
         document.documentElement.dataset.themeSetting = theme;
+        document.documentElement.dataset.accent = accent;
       })();
     </script>
     <link rel="stylesheet" href="{{ '/assets/css/tailwind.css' | relative_url }}">
@@ -115,6 +122,10 @@
               <span class="portfolio-theme-thumb"></span>
             </span>
           </button>
+          <button class="portfolio-accent-toggle js-portfolio-accent-toggle" type="button" aria-label="Change accent color">
+            <i class="fa-solid fa-palette" aria-hidden="true"></i>
+            <span class="portfolio-accent-swatch" aria-hidden="true"></span>
+          </button>
         </div>
 
         <p class="portfolio-copyright">
@@ -136,6 +147,10 @@
               <i class="fa-solid fa-sun"></i>
               <span class="portfolio-theme-thumb"></span>
             </span>
+          </button>
+          <button class="portfolio-accent-toggle js-portfolio-accent-toggle" type="button" aria-label="Change accent color">
+            <i class="fa-solid fa-palette" aria-hidden="true"></i>
+            <span class="portfolio-accent-swatch" aria-hidden="true"></span>
           </button>
         </nav>
 
@@ -251,6 +266,41 @@
         }
 
         setTheme(document.documentElement.dataset.theme === 'light' ? 'light' : 'dark');
+      })();
+
+      (() => {
+        const storageKey = 'anamika-accent';
+        const accents = ['violet', 'teal', 'sky', 'rose', 'emerald'];
+        const toggles = document.querySelectorAll('.js-portfolio-accent-toggle');
+        if (!toggles.length) return;
+
+        function labelFor(accent) {
+          return accent.charAt(0).toUpperCase() + accent.slice(1);
+        }
+
+        function setAccent(accent) {
+          const nextAccent = accents.includes(accent) ? accent : 'violet';
+          document.documentElement.dataset.accent = nextAccent;
+          for (const toggle of toggles) {
+            toggle.setAttribute('aria-label', `Change accent color. Current: ${labelFor(nextAccent)}`);
+          }
+
+          try {
+            window.localStorage.setItem(storageKey, nextAccent);
+          } catch (error) {
+            // Ignore private browsing storage failures.
+          }
+        }
+
+        for (const toggle of toggles) {
+          toggle.addEventListener('click', () => {
+            const currentAccent = document.documentElement.dataset.accent || 'violet';
+            const currentIndex = accents.indexOf(currentAccent);
+            setAccent(accents[(currentIndex + 1) % accents.length]);
+          });
+        }
+
+        setAccent(document.documentElement.dataset.accent || 'violet');
       })();
     </script>
   </body>
