@@ -1,0 +1,55 @@
+/*******************************************************************************
+ * Variables used throughout the theme.
+ * Local override for this site; keep shared values editable here.
+ ******************************************************************************/
+
+@use "sass:color";
+
+// Colors
+$red-color: #ff3636 !default;
+$red-color-dark: #b71c1c !default;
+$orange-color: #f29105 !default;
+$blue-color: #0076df !default;
+$blue-color-dark: #00369f !default;
+$cyan-color: #2698ba !default;
+$light-cyan-color: color.adjust($cyan-color, $lightness: 25%);
+$green-color: #00ab37 !default;
+$green-color-lime: #b7d12a !default;
+$green-color-dark: #009f06 !default;
+$green-color-light: #ddffdd !default;
+$green-color-bright: #11d68b !default;
+$purple-color: #9333ea !default;
+$light-purple-color: #a855f7 !default;
+$pink-color: #f92080 !default;
+$pink-color-light: #ffdddd !default;
+$yellow-color: #efcc00 !default;
+$grey-color: #a1a1aa !default;
+$grey-color-light: #f2f2f2 !default;
+$grey-color-dark: #0d0d0f;
+$grey-900: #111114;
+
+$white-color: #ffffff !default;
+$black-color: #000000 !default;
+
+// Theme colors
+$code-bg-color-light: #16161a;
+$code-bg-color-dark: #16161a !default;
+
+// Font families
+$global-font-family: "Inter", sans-serif !default;
+$global-mono-font-family: "JetBrains Mono", "IBM Plex Mono", monospace !default;
+$global-heading-font-family: $global-font-family !default;
+
+// Font awesome location
+$fa-font-path: "../webfonts";
+
+// Back To Top button config
+$back-to-top-z-index: 10;
+$back-to-top-bottom: 30px;
+$back-to-top-right: 30px;
+$back-to-top-diameter: 40px;
+$back-to-top-height: $back-to-top-diameter;
+$back-to-top-width: $back-to-top-diameter;
+
+// Max width default
+$max-content-width: 930px !default;
