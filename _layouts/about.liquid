@@ -64,6 +64,39 @@ layout: portfolio
   </section>
 {% endif %}
 
+{% if page.education %}
+  <section class="portfolio-section" id="education" aria-labelledby="education-title">
+    <div class="portfolio-heading">
+      <span class="portfolio-heading-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" role="img">
+          <path d="M12 3 2 8l10 5 10-5Zm-6 8v4.5c1.8 1.8 3.8 2.7 6 2.7s4.2-.9 6-2.7V11l-6 3Z"></path>
+        </svg>
+      </span>
+      <h2 id="education-title">Education</h2>
+    </div>
+
+    <div class="portfolio-affiliations portfolio-education-list">
+      {% for item in page.education %}
+        <article class="portfolio-affiliation-card portfolio-education-card">
+          <div class="portfolio-affiliation-head">
+            <h3>{{ item.degree }} | {{ item.field }}</h3>
+          </div>
+          <p class="portfolio-education-institution">{{ item.institution }}</p>
+          {% if item.supervisors %}
+            <p><strong>Supervisors:</strong> {{ item.supervisors }}</p>
+          {% endif %}
+          {% if item.project %}
+            <p><strong>Project:</strong> {{ item.project }}</p>
+          {% endif %}
+          {% if item.thesis %}
+            <p><strong>Thesis:</strong> {{ item.thesis }}</p>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}
+
 <section class="portfolio-section" id="contact" aria-labelledby="contact-title">
   <div class="portfolio-heading">
     <span class="portfolio-heading-icon" aria-hidden="true">

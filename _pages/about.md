@@ -34,6 +34,22 @@ professional_affiliations:
   - title: Affiliate
     dates: October 2023 -- July 2024
     organization: Lawrence Berkeley National Lab (LBNL), CA, USA
+
+education:
+  - degree: Ph.D.
+    field: Electrical Engineering
+    institution: Indian Institute of Technology Kanpur
+    supervisors: Prof. Abheejeet Mohapatra, Prof. S. R. Sahoo
+    thesis: Novel Optimization Approaches for Time-Efficient and Robust Operation of AC Power Networks
+  - degree: M.Tech.
+    field: Electrical Engineering
+    institution: Indian Institute of Technology Roorkee
+    supervisors: Prof. Barjeev Tyagi
+    thesis: Reactive Power Management for Sub-Transmission Grids
+  - degree: B.Tech.
+    field: Electrical Engineering
+    institution: Kamla Nehru Institute of Technology, Sultanpur
+    project: Source Selection and Control Device for Solar Inverter
 ---
 
 I am a Postdoctoral Researcher at Lawrence Berkeley National Lab (LBNL), USA.

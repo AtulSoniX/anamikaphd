@@ -607,6 +607,18 @@ html[data-theme-setting="light"] {
   line-height: 1.5;
 }
 
+.portfolio-education-institution {
+  color: var(--portfolio-heading-color) !important;
+  font-weight: 800;
+}
+
+.portfolio-education-card strong {
+  color: var(--global-hover-color);
+  font-family: var(--global-mono-font-family);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+}
+
 .portfolio-contact {
   display: grid;
   gap: 1.2rem;
