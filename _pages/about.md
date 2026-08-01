@@ -25,6 +25,15 @@ focus_areas:
     description: Designing tractable methods for complex power system planning and operation problems.
   - title: Large-Scale Energy Modeling
     description: Building MATLAB and Python workflows for scalable analysis of energy systems.
+
+professional_affiliations:
+  - title: "Postdoctoral Researcher: Energy Storage & Distributed Resources Division"
+    dates: July 2024 -- Present
+    mentors: Dr. Alexandre Moreira, Dr. Miguel Heleno
+    organization: Lawrence Berkeley National Lab (LBNL), CA, USA
+  - title: Affiliate
+    dates: October 2023 -- July 2024
+    organization: Lawrence Berkeley National Lab (LBNL), CA, USA
 ---
 
 I am a Postdoctoral Researcher at Lawrence Berkeley National Lab (LBNL), USA.

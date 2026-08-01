@@ -36,6 +36,34 @@ layout: portfolio
   </div>
 </section>
 
+{% if page.professional_affiliations %}
+  <section class="portfolio-section" id="professional-affiliations" aria-labelledby="affiliations-title">
+    <div class="portfolio-heading">
+      <span class="portfolio-heading-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" role="img">
+          <path d="M10 4h4v3h5v13H5V7h5Zm2 3h0Zm-5 5h10V9H7Zm0 6h10v-4H7Z"></path>
+        </svg>
+      </span>
+      <h2 id="affiliations-title">Professional Affiliations</h2>
+    </div>
+
+    <div class="portfolio-affiliations">
+      {% for affiliation in page.professional_affiliations %}
+        <article class="portfolio-affiliation-card">
+          <div class="portfolio-affiliation-head">
+            <h3>{{ affiliation.title }}</h3>
+            <span>{{ affiliation.dates }}</span>
+          </div>
+          {% if affiliation.mentors %}
+            <p>{{ affiliation.mentors }}</p>
+          {% endif %}
+          <p>{{ affiliation.organization }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}
+
 <section class="portfolio-section" id="contact" aria-labelledby="contact-title">
   <div class="portfolio-heading">
     <span class="portfolio-heading-icon" aria-hidden="true">

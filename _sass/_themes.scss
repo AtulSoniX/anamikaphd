@@ -565,6 +565,48 @@ html[data-theme-setting="light"] {
   line-height: 1.45;
 }
 
+.portfolio-affiliations {
+  display: grid;
+  gap: 0.95rem;
+}
+
+.portfolio-affiliation-card {
+  border: var(--portfolio-border-width) solid var(--portfolio-panel-border-color);
+  border-left-color: var(--global-theme-color);
+  border-radius: var(--portfolio-radius);
+  padding: 1rem;
+  background: var(--portfolio-panel-bg);
+  box-shadow: var(--portfolio-panel-shadow);
+}
+
+.portfolio-affiliation-head {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.portfolio-affiliation-head h3 {
+  margin: 0;
+  color: var(--portfolio-heading-color);
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.portfolio-affiliation-head span {
+  flex: 0 0 auto;
+  color: var(--global-hover-color);
+  font-family: var(--global-mono-font-family);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.portfolio-affiliation-card p {
+  margin: 0.45rem 0 0;
+  color: var(--portfolio-muted-color);
+  line-height: 1.5;
+}
+
 .portfolio-contact {
   display: grid;
   gap: 1.2rem;
@@ -950,6 +992,11 @@ html[data-theme-setting="light"] {
 
   .portfolio-focus-grid {
     grid-template-columns: 1fr;
+  }
+
+  .portfolio-affiliation-head {
+    display: grid;
+    gap: 0.35rem;
   }
 
   .portfolio-meta-list div,
