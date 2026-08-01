@@ -2,12 +2,12 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: <a href='https://gridintegration.lbl.gov/people/anamika-tiwari'>Postdoctoral Researcher, </a>. Lawrence Berkeley National Lab (LBNL), USA.
 
 profile:
   align: right
   image: Anamika.jpg
-  image_circular: false # crops the image to make it circular
+  image_circular: true # crops the image to make it circular
   more_info: >
     <p>555 your office number</p>
     <p>123 your address street</p>
@@ -27,4 +27,8 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a Postdoctoral Researcher at Lawrence Berkeley National Lab (LBNL), USA. I hold a Ph.D. in Electrical Engineering from Indian Institute of Technology (IIT) Kanpur, India with expertise in developing advanced optimization algorithms for robust and efficient power system planning and operation. I am experienced in stochastic and convex optimization, renewable integration, and large-scale energy system modeling using MATLAB and Python.
+I am a Postdoctoral Researcher at Lawrence Berkeley National Lab (LBNL), USA. 
+
+I hold a Ph.D. in Electrical Engineering from Indian Institute of Technology (IIT) Kanpur, India with expertise in developing advanced optimization algorithms for robust and efficient power system planning and operation. 
+
+I am experienced in stochastic and convex optimization, renewable integration, and large-scale energy system modeling using MATLAB and Python.
