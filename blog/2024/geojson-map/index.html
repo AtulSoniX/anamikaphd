@@ -1,4 +1,19 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <title> Anamika Tiwari - My Portfolio | a post with geojson </title> <meta name="description" content="A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design."> <link rel="canonical" href="https://atulsonix.github.io/anamikaphd/blog/2024/geojson-map/"> <link rel="stylesheet" href="/anamikaphd/assets/css/tailwind.css"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link rel="stylesheet" href="/anamikaphd/assets/css/main.css"> </head> <body class="anamika-portfolio-body"> <canvas class="portfolio-particles" id="portfolio-particles" aria-hidden="true"></canvas> <div class="portfolio-shell"> <aside class="portfolio-sidebar" aria-label="Profile"> <a class="portfolio-photo-link" href="https://gridintegration.lbl.gov/people/anamika-tiwari" target="_blank" rel="noopener"> <img class="portfolio-photo" src="/anamikaphd/assets/img/Anamika.jpg" alt="Anamika Tiwari portrait" width="220" height="220"> </a> <div class="portfolio-identity"> <h1>Anamika Tiwari</h1> <p class="portfolio-role">Postdoctoral Researcher</p> <p class="portfolio-affiliation">Lawrence Berkeley National Lab (LBNL), USA</p> <p class="portfolio-blurb">Optimization, renewable integration, and large-scale power system modeling.</p> </div> <div class="portfolio-details"> <p>Ph.D., Electrical Engineering, IIT Kanpur</p> <p>M.Tech., Electrical Engineering, IIT Roorkee</p> </div> <div class="portfolio-socials" aria-label="Profile links"> <a href="mailto:work.anamika@gmail.com" aria-label="Email"> <i class="fa-solid fa-envelope" aria-hidden="true"></i> </a> <a href="https://www.linkedin.com/in/anamika-t/" target="_blank" rel="noopener" aria-label="LinkedIn"> <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i> </a> <a href="https://scholar.google.com/citations?user=i84LWQkAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar"> <i class="ai ai-google-scholar" aria-hidden="true"></i> </a> <a href="https://gridintegration.lbl.gov/people/anamika-tiwari" target="_blank" rel="noopener" aria-label="LBNL profile">LBNL</a> </div> <p class="portfolio-copyright"> © 2026 Anamika Tiwari </p> </aside> <main class="portfolio-main"> <nav class="portfolio-nav" aria-label="Primary"> <a class="" href="/anamikaphd/">About</a> <a class="" href="/anamikaphd/research/">Research</a> <a class="" href="/anamikaphd/publications/">Publications</a> <a class="" href="/anamikaphd/projects/">Projects</a> <a class="" href="/anamikaphd/contact/">Contact</a> </nav> <article class="portfolio-section portfolio-section-first" aria-labelledby="post-title"> <header class="portfolio-page-header"> <p class="portfolio-kicker">January 26, 2024</p> <h1 id="post-title">a post with geojson</h1> <p>this is what included geojson code could look like</p> </header> <div class="portfolio-panel portfolio-rich-text"> <p>This is an example post with some <a href="https://geojson.org/" rel="external nofollow noopener" target="_blank">geojson</a> code. The support is provided thanks to <a href="https://leafletjs.com/" rel="external nofollow noopener" target="_blank">Leaflet</a>. To create your own visualization, go to <a href="https://geojson.io/" rel="external nofollow noopener" target="_blank">geojson.io</a>.</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">geojson
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <title> Anamika Tiwari - My Portfolio | a post with geojson </title> <meta name="description" content="A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design."> <link rel="canonical" href="https://atulsonix.github.io/anamikaphd/blog/2024/geojson-map/"> <script>
+      (() => {
+        const storageKey = 'anamika-theme';
+        let theme = 'dark';
+
+        try {
+          const savedTheme = window.localStorage.getItem(storageKey);
+          if (savedTheme === 'light' || savedTheme === 'dark') theme = savedTheme;
+        } catch (error) {
+          theme = 'dark';
+        }
+
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.dataset.themeSetting = theme;
+      })();
+    </script> <link rel="stylesheet" href="/anamikaphd/assets/css/tailwind.css"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link rel="stylesheet" href="/anamikaphd/assets/css/main.css"> </head> <body class="anamika-portfolio-body"> <canvas class="portfolio-particles" id="portfolio-particles" aria-hidden="true"></canvas> <div class="portfolio-shell"> <aside class="portfolio-sidebar" aria-label="Profile"> <a class="portfolio-photo-link" href="https://gridintegration.lbl.gov/people/anamika-tiwari" target="_blank" rel="noopener"> <img class="portfolio-photo" src="/anamikaphd/assets/img/Anamika.jpg" alt="Anamika Tiwari portrait" width="220" height="220"> </a> <div class="portfolio-identity"> <h1>Anamika Tiwari</h1> <p class="portfolio-role">Postdoctoral Researcher</p> <p class="portfolio-affiliation">Lawrence Berkeley National Lab (LBNL), USA</p> <p class="portfolio-blurb">Optimization, renewable integration, and large-scale power system modeling.</p> </div> <div class="portfolio-details"> <p>Ph.D., Electrical Engineering, IIT Kanpur</p> <p>M.Tech., Electrical Engineering, IIT Roorkee</p> </div> <div class="portfolio-socials" aria-label="Profile links"> <a href="mailto:work.anamika@gmail.com" aria-label="Email"> <i class="fa-solid fa-envelope" aria-hidden="true"></i> </a> <a href="https://www.linkedin.com/in/anamika-t/" target="_blank" rel="noopener" aria-label="LinkedIn"> <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i> </a> <a href="https://scholar.google.com/citations?user=i84LWQkAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar"> <i class="ai ai-google-scholar" aria-hidden="true"></i> </a> <a href="https://gridintegration.lbl.gov/people/anamika-tiwari" target="_blank" rel="noopener" aria-label="LBNL profile">LBNL</a> <button class="portfolio-theme-toggle js-portfolio-theme-toggle" type="button" aria-label="Switch to light mode"> <i class="fa-solid fa-sun only-dark" aria-hidden="true"></i> <i class="fa-solid fa-moon only-light" aria-hidden="true"></i> </button> </div> <p class="portfolio-copyright"> © 2026 Anamika Tiwari </p> </aside> <main class="portfolio-main"> <nav class="portfolio-nav" aria-label="Primary"> <a class="" href="/anamikaphd/">About</a> <a class="" href="/anamikaphd/research/">Research</a> <a class="" href="/anamikaphd/publications/">Publications</a> <a class="" href="/anamikaphd/projects/">Projects</a> <a class="" href="/anamikaphd/contact/">Contact</a> <button class="portfolio-theme-toggle js-portfolio-theme-toggle" type="button" aria-label="Switch to light mode"> <i class="fa-solid fa-sun only-dark" aria-hidden="true"></i> <i class="fa-solid fa-moon only-light" aria-hidden="true"></i> </button> </nav> <article class="portfolio-section portfolio-section-first" aria-labelledby="post-title"> <header class="portfolio-page-header"> <p class="portfolio-kicker">January 26, 2024</p> <h1 id="post-title">a post with geojson</h1> <p>this is what included geojson code could look like</p> </header> <div class="portfolio-panel portfolio-rich-text"> <p>This is an example post with some <a href="https://geojson.org/" rel="external nofollow noopener" target="_blank">geojson</a> code. The support is provided thanks to <a href="https://leafletjs.com/" rel="external nofollow noopener" target="_blank">Leaflet</a>. To create your own visualization, go to <a href="https://geojson.io/" rel="external nofollow noopener" target="_blank">geojson.io</a>.</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">geojson
 </span><span class="sb">{
   "type": "FeatureCollection",
   "features": [
@@ -151,5 +166,34 @@
         resize();
         seed();
         draw();
+      })();
+
+      (() => {
+        const storageKey = 'anamika-theme';
+        const toggles = document.querySelectorAll('.js-portfolio-theme-toggle');
+        if (!toggles.length) return;
+
+        function setTheme(theme) {
+          document.documentElement.dataset.theme = theme;
+          document.documentElement.dataset.themeSetting = theme;
+          for (const toggle of toggles) {
+            toggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+          }
+
+          try {
+            window.localStorage.setItem(storageKey, theme);
+          } catch (error) {
+            // Ignore private browsing storage failures.
+          }
+        }
+
+        for (const toggle of toggles) {
+          toggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
+            setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+          });
+        }
+
+        setTheme(document.documentElement.dataset.theme === 'light' ? 'light' : 'dark');
       })();
     </script> </body> </html>
