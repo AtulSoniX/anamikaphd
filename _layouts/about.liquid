@@ -52,6 +52,9 @@ layout: portfolio
       {% if site.data.socials.email %}
         <a href="mailto:{{ site.data.socials.email }}">Email</a>
       {% endif %}
+      {% if site.data.socials.linkedin %}
+        <a href="{{ site.data.socials.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+      {% endif %}
       <a href="{{ page.profile.profile_url }}" target="_blank" rel="noopener">LBNL Profile</a>
       <a href="{{ '/publications/' | relative_url }}">Publications</a>
     </div>
