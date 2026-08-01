@@ -899,6 +899,22 @@ html[data-theme="light"] .portfolio-theme-thumb {
   gap: 1.2rem;
 }
 
+.portfolio-empty-state {
+  border: var(--portfolio-border-width) solid var(--portfolio-panel-border-color);
+  border-radius: var(--portfolio-radius);
+  padding: clamp(1.4rem, 3vw, 2.2rem);
+  background: var(--portfolio-panel-bg-color);
+  color: var(--portfolio-muted-color);
+  text-align: center;
+}
+
+.portfolio-empty-state p {
+  margin: 0;
+  color: var(--portfolio-muted-color);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
 .portfolio-contact-actions {
   display: flex;
   flex-wrap: wrap;
