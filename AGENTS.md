@@ -19,19 +19,19 @@ the build.
 
 ## Where things live (edit these, not the theme internals)
 
-| I want to change...        | Edit this                                   |
-|-----------------------------|----------------------------------------------|
-| Name, title, bio, photo, social links | `_config.yml` and `_pages/about.md`  |
-| Publications list           | `_bibliography/papers.bib` (BibTeX format)   |
-| CV                           | `_pages/cv.md` (or `assets/pdf/cv.pdf` if using a PDF CV) |
-| News / announcements         | `_news/` (one Markdown file per item)        |
-| Projects / portfolio         | `_projects/` (one Markdown file per project) |
-| Blog posts                   | `_posts/` (one Markdown file per post)       |
-| Teaching page                | `_pages/teaching.md`                         |
-| Site colors / theme          | `_sass/_variables.scss` (only if explicitly asked) |
-| Navbar structure              | `_data/navigation.yml`                       |
-| Profile photo & images        | `assets/img/`                                |
-| Site title, description, URL  | `_config.yml`                                |
+| I want to change...                   | Edit this                                                 |
+| ------------------------------------- | --------------------------------------------------------- |
+| Name, title, bio, photo, social links | `_config.yml` and `_pages/about.md`                       |
+| Publications list                     | `_bibliography/papers.bib` (BibTeX format)                |
+| CV                                    | `_pages/cv.md` (or `assets/pdf/cv.pdf` if using a PDF CV) |
+| News / announcements                  | `_news/` (one Markdown file per item)                     |
+| Projects / portfolio                  | `_projects/` (one Markdown file per project)              |
+| Blog posts                            | `_posts/` (one Markdown file per post)                    |
+| Teaching page                         | `_pages/teaching.md`                                      |
+| Site colors / theme                   | `_sass/_variables.scss` (only if explicitly asked)        |
+| Navbar structure                      | `_data/navigation.yml`                                    |
+| Profile photo & images                | `assets/img/`                                             |
+| Site title, description, URL          | `_config.yml`                                             |
 
 **Rule of thumb:** if the task is "add/update content" (a paper, a bio line, a
 news item, a photo), only touch Markdown/YAML/BibTeX files in the tables
@@ -46,7 +46,7 @@ the theme itself and are easy to break.
    then check `http://localhost:4000`. If Jekyll/Ruby isn't installed, skip
    preview and just describe the change clearly instead of guessing.
 3. Commit with a clear, specific message (e.g. `Add 2026 JMLR paper to
-   publications`, not `update`).
+publications`, not `update`).
 4. Push to the branch GitHub Pages builds from (usually `main`).
 5. Confirm to the user: "Pushed. GitHub Actions will rebuild the site in
    ~1-2 minutes; refresh the live URL after that."
@@ -89,6 +89,7 @@ spacing, link colors, dark/light defaults — override values in
 for a color change; it's always a variable swap in `_sass/`.
 
 **Add a navbar tab / page**
+
 1. Duplicate an existing file in `_pages/` that's structurally similar to
    what's needed (e.g. copy `_pages/teaching.md` to make `_pages/talks.md`).
 2. Update its front matter: `title`, `permalink`, `nav: true`, and
@@ -100,11 +101,13 @@ for a color change; it's always a variable swap in `_sass/`.
    modeled on `_pages/projects.md`.
 
 **Remove a navbar tab / page**
+
 - To hide without deleting: set `nav: false` in that page's front matter.
 - To remove entirely: delete the corresponding file in `_pages/` (and its
   folder under `_news/`, `_projects/`, etc. if it's a collection).
 
 **Add a new content collection (beyond news/projects)**
+
 1. Add a new entry under `collections:` in `_config.yml`.
 2. Create a matching folder (e.g. `_talks/`) with content files in it.
 3. Add a landing page in `_pages/` (copy `_pages/projects.md` as a starting
@@ -118,14 +121,15 @@ accent, inspired by a reference site (sharmaswastik.github.io). This is a
 
 **1. Colors — edit `_sass/_themes.scss`**
 Set (adjust exact hex to taste once previewed, these are close starting points):
+
 ```scss
 // Dark mode (make this the default if the theme supports a default toggle)
 --global-bg-color: #0d0d0f;
 --global-code-bg-color: #16161a;
 --global-text-color: #f2f2f2;
---global-text-color-light: #a1a1aa;   // secondary/gray text
---global-theme-color: #9333ea;         // primary violet accent (links, active nav, icons)
---global-hover-color: #a855f7;         // lighter violet for hover states
+--global-text-color-light: #a1a1aa; // secondary/gray text
+--global-theme-color: #9333ea; // primary violet accent (links, active nav, icons)
+--global-hover-color: #a855f7; // lighter violet for hover states
 --global-footer-bg-color: #0d0d0f;
 --global-footer-text-color: #a1a1aa;
 --global-footer-link-color: #a855f7;
@@ -133,6 +137,7 @@ Set (adjust exact hex to taste once previewed, these are close starting points):
 --global-divider-color: rgba(168, 85, 247, 0.25);
 --global-card-bg-color: #111114;
 ```
+
 If `_config.yml` has a `theme:` or dark-mode-default setting, set it so the
 site loads in dark mode by default rather than requiring a toggle click,
 since the reference site is dark-only.
@@ -166,6 +171,7 @@ a layout, include, or page. This is what makes future changes a one-line
 edit instead of a hunt through the codebase.
 
 **Rules for any styling change:**
+
 - If a color/font/spacing value doesn't already have a variable, add one in
   `_themes.scss`/`_variables.scss` first, with a short comment saying what it
   controls (e.g. `--global-theme-color: #9333ea; // primary accent: links, active nav, icons`), then reference that variable everywhere it's needed.
@@ -174,8 +180,8 @@ edit instead of a hunt through the codebase.
   `var(--variable-name)`.
 - Fonts should be declared once as variables too, e.g.:
   ```scss
-  --global-font-family: 'Inter', sans-serif;      // body text
-  --global-mono-font-family: 'JetBrains Mono', monospace; // tagline/code accents
+  --global-font-family: "Inter", sans-serif; // body text
+  --global-mono-font-family: "JetBrains Mono", monospace; // tagline/code accents
   --global-heading-font-family: var(--global-font-family);
   ```
   and referenced via `font-family: var(--global-font-family);` rather than
@@ -223,6 +229,7 @@ This site is being built in one GitHub account and will later move to the
 site owner's own account, either via GitHub's repo-transfer feature or by her
 using "Use this template" on the finished repo. If asked to prepare for
 transfer, make sure:
+
 - No secrets, API keys, or personal credentials are committed anywhere.
 - The repo name is (or will be renamed to) `<her-username>.github.io`.
 - `_config.yml`'s `url`/`github_username`/social fields point to her accounts,
