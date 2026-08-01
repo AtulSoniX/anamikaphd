@@ -12,7 +12,8 @@
   --global-code-bg-color: #16161a;
   --global-text-color: #f2f2f2;
   --global-text-color-light: #a1a1aa;
-  --global-theme-color: #9333ea; // primary accent: links, active nav, icons
+  // Primary accent: links, active nav, icons.
+  --global-theme-color: #9333ea;
   --global-hover-color: #a855f7;
   --global-hover-text-color: #ffffff;
   --global-footer-bg-color: #0d0d0f;
@@ -197,14 +198,24 @@ html[data-theme-setting="light"] {
 .fa-half-sun-moon::before {
   content: "\f111";
   color: var(--global-text-color);
-  clip-path: polygon(0 0, calc(50% - 0.5px) 0, calc(50% - 0.5px) 100%, 0 100%);
+  clip-path: polygon(
+    0 0,
+    calc(50% - 0.5px) 0,
+    calc(50% - 0.5px) 100%,
+    0 100%
+  );
 }
 
 /* Right half: SUN */
 .fa-half-sun-moon::after {
   content: "\f185";
   color: var(--global-text-color);
-  clip-path: polygon(calc(50% + 0.5px) 0, 100% 0, 100% 100%, calc(50% + 0.5px) 100%);
+  clip-path: polygon(
+    calc(50% + 0.5px) 0,
+    100% 0,
+    100% 100%,
+    calc(50% + 0.5px) 100%
+  );
   right: -1.5px; /* slight overflow to avoid right-edge clipping */
   transform: translateX(-1px); /* visually re-center the sun half */
 }
