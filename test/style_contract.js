@@ -66,8 +66,9 @@ if (/gem 'al_math',\s*:git =>/.test(gemfile)) {
 }
 
 // This repo is now a user site, not the upstream al-folio starter. Local Sass
-// token overrides are valid here; keep runtime/layout ownership checks intact.
-for (const forbiddenPath of ["_includes", "_layouts", "_scripts", "assets/tailwind", "tailwind.config.js", "assets/webfonts"]) {
+// token overrides and a site-specific About layout override are valid here;
+// keep shared runtime ownership checks intact.
+for (const forbiddenPath of ["_includes", "_scripts", "assets/tailwind", "tailwind.config.js", "assets/webfonts"]) {
   if (exists(forbiddenPath)) {
     failures.push(`Starter must not own core component path \`${forbiddenPath}\`; move ownership to the corresponding gem.`);
   }
