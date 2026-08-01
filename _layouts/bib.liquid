@@ -1,0 +1,75 @@
+<article class="publication-record">
+  <dl class="publication-fields">
+    <div>
+      <dt>Paper name</dt>
+      <dd class="publication-title">{{ entry.title }}</dd>
+    </div>
+
+    <div>
+      <dt>Authors</dt>
+      <dd>{{ entry.author | replace: ' and ', '; ' }}</dd>
+    </div>
+
+    <div>
+      <dt>Publisher details</dt>
+      <dd>
+        {% capture publisher_details %}
+          {% if entry.journal %}{{ entry.journal }}{% elsif entry.booktitle %}{{ entry.booktitle }}{% elsif entry.publisher %}{{ entry.publisher }}{% endif %}
+          {% if entry.volume %}, vol. {{ entry.volume }}{% endif %}
+          {% if entry.number %}, no. {{ entry.number }}{% elsif entry.issue %}, no. {{ entry.issue }}{% endif %}
+          {% if entry.pages %}, pp. {{ entry.pages }}{% endif %}
+          {% if entry.location %}, {{ entry.location }}{% endif %}
+          {% if entry.month %}, {{ entry.month }}{% endif %}
+          {% if entry.year %}, {{ entry.year }}{% endif %}
+          {% if entry.publisher and entry.journal %}. Publisher: {{ entry.publisher }}{% endif %}
+        {% endcapture %}
+        {% assign publisher_details = publisher_details | strip %}
+        {% if publisher_details != '' %}
+          {{ publisher_details }}
+        {% else %}
+          Not available
+        {% endif %}
+      </dd>
+    </div>
+
+    <div>
+      <dt>DOI</dt>
+      <dd>
+        {% if entry.doi %}
+          <a href="https://doi.org/{{ entry.doi }}" target="_blank" rel="noopener">{{ entry.doi }}</a>
+        {% else %}
+          Not available
+        {% endif %}
+      </dd>
+    </div>
+
+    <div>
+      <dt>Link</dt>
+      <dd class="publication-links">
+        {% if entry.url %}
+          <a href="{{ entry.url }}" target="_blank" rel="noopener">URL</a>
+        {% endif %}
+        {% if entry.html %}
+          {% assign html_link = entry.html %}
+          {% unless html_link contains '://' %}
+            {% assign html_link = '/assets/html/' | append: html_link | relative_url %}
+          {% endunless %}
+          <a href="{{ html_link }}" target="_blank" rel="noopener">HTML</a>
+        {% endif %}
+        {% if entry.pdf %}
+          {% assign pdf_link = entry.pdf %}
+          {% unless pdf_link contains '://' %}
+            {% assign pdf_link = '/assets/pdf/' | append: pdf_link | relative_url %}
+          {% endunless %}
+          <a href="{{ pdf_link }}" target="_blank" rel="noopener">PDF</a>
+        {% endif %}
+        {% if entry.doi %}
+          <a href="https://doi.org/{{ entry.doi }}" target="_blank" rel="noopener">DOI</a>
+        {% endif %}
+        {% unless entry.url or entry.html or entry.pdf or entry.doi %}
+          Not available
+        {% endunless %}
+      </dd>
+    </div>
+  </dl>
+</article>
