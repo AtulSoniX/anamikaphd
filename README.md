@@ -89,9 +89,10 @@ change and check the live site a minute or two later (see below).
 1. Save your edits.
 2. In the terminal (or via VS Code's Git panel):
    ```
+   git pull origin main
    git add -A
    git commit -m "describe what you changed"
-   git push
+   git push origin main
    ```
 3. GitHub Actions rebuilds the site automatically. Check the **Actions** tab
    on GitHub if the live site doesn't update within a couple of minutes —

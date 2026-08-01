@@ -29,6 +29,6 @@ latest_posts:
 
 I am a Postdoctoral Researcher at Lawrence Berkeley National Lab (LBNL), USA. 
 
-I hold a Ph.D. in Electrical Engineering from Indian Institute of Technology (IIT) Kanpur, India with expertise in developing advanced optimization algorithms for robust and efficient power system planning and operation. 
+I hold a Ph.D. in Electrical Engineering from Indian Institute of Technology (IIT) Kanpur, India with expertise in developing advanced optimization algorithms for robust and efficient power system planning and operation. I pursued my M.Tech. in Electrical Engineering from Indian Institute of Technology (IIT) Roorkee, India 
 
 I am experienced in stochastic and convex optimization, renewable integration, and large-scale energy system modeling using MATLAB and Python.
