@@ -16,6 +16,22 @@
     </title>
     <meta name="description" content="{{ site.description | strip_html | strip_newlines | truncate: 160 }}">
     <link rel="canonical" href="{{ page.url | absolute_url }}">
+    <script>
+      (() => {
+        const storageKey = 'anamika-theme';
+        let theme = 'dark';
+
+        try {
+          const savedTheme = window.localStorage.getItem(storageKey);
+          if (savedTheme === 'light' || savedTheme === 'dark') theme = savedTheme;
+        } catch (error) {
+          theme = 'dark';
+        }
+
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.dataset.themeSetting = theme;
+      })();
+    </script>
     <link rel="stylesheet" href="{{ '/assets/css/tailwind.css' | relative_url }}">
     <link
       defer
@@ -92,6 +108,10 @@
             </a>
           {% endif %}
           <a href="{{ profile.profile_url }}" target="_blank" rel="noopener" aria-label="LBNL profile">LBNL</a>
+          <button class="portfolio-theme-toggle js-portfolio-theme-toggle" type="button" aria-label="Switch to light mode">
+            <i class="fa-solid fa-sun only-dark" aria-hidden="true"></i>
+            <i class="fa-solid fa-moon only-light" aria-hidden="true"></i>
+          </button>
         </div>
 
         <p class="portfolio-copyright">
@@ -107,6 +127,10 @@
           <a class="{% if page.url contains '/publications/' %}active{% endif %}" href="{{ '/publications/' | relative_url }}">Publications</a>
           <a class="{% if page.url contains '/projects/' %}active{% endif %}" href="{{ '/projects/' | relative_url }}">Projects</a>
           <a class="{% if page.url contains '/contact/' %}active{% endif %}" href="{{ '/contact/' | relative_url }}">Contact</a>
+          <button class="portfolio-theme-toggle js-portfolio-theme-toggle" type="button" aria-label="Switch to light mode">
+            <i class="fa-solid fa-sun only-dark" aria-hidden="true"></i>
+            <i class="fa-solid fa-moon only-light" aria-hidden="true"></i>
+          </button>
         </nav>
 
         {{ content }}
@@ -192,6 +216,35 @@
         resize();
         seed();
         draw();
+      })();
+
+      (() => {
+        const storageKey = 'anamika-theme';
+        const toggles = document.querySelectorAll('.js-portfolio-theme-toggle');
+        if (!toggles.length) return;
+
+        function setTheme(theme) {
+          document.documentElement.dataset.theme = theme;
+          document.documentElement.dataset.themeSetting = theme;
+          for (const toggle of toggles) {
+            toggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+          }
+
+          try {
+            window.localStorage.setItem(storageKey, theme);
+          } catch (error) {
+            // Ignore private browsing storage failures.
+          }
+        }
+
+        for (const toggle of toggles) {
+          toggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
+            setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+          });
+        }
+
+        setTheme(document.documentElement.dataset.theme === 'light' ? 'light' : 'dark');
       })();
     </script>
   </body>
