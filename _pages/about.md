@@ -5,7 +5,7 @@ permalink: /
 subtitle: <a href='https://gridintegration.lbl.gov/people/anamika-tiwari'>Postdoctoral Researcher, </a>. Lawrence Berkeley National Lab (LBNL), USA.
 
 profile:
-  align: right
+  align: left
   image: Anamika.jpg
   image_circular: true # crops the image to make it circular
   more_info: >
